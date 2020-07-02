@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+
 // also see providers array to add service to app
 @Injectable({
   providedIn: 'root' // provided in root module - inside app.module.ts - by the root app injector that is
