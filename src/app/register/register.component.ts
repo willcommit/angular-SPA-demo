@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-register',
@@ -6,19 +8,25 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  @Input() valuesFromHome: any;
+  @Input() valuesFromHome: any; // input from parent to child, vales used in template
+  @Output() cancelRegister = new EventEmitter(); // output from child to parent, en event that is emitted
   model: any = {};
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   register() {
-    console.log(this.model);
+    this.authService.register(this.model).subscribe(() => {
+      console.log('registration successful!');
+    }, error => {
+      console.log(error);
+    });
   }
 
   cancel() {
+    this.cancelRegister.emit(false);
     console.log('cancelled');
   }
 
