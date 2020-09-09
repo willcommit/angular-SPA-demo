@@ -1,0 +1,22 @@
+
+[
+  {
+    "name": "Test7",
+    "description": "blablablsadfsfsd",
+    "price": 2,
+    "stock": 3
+  },
+  {
+    "name": "Test2",
+    "description": "blablablsadfsfsd",
+    "price": 2899,
+    "stock": 7
+  },
+  {
+    "name": "Test3",
+    "description": "blablablsadfsfsd",
+    "price": 29,
+    "stock": 1
+  }
+]
+
